@@ -18,7 +18,7 @@
 <body>
 
   <!-- Sign-up form start -->
-  <div id="sign-up">
+  <div id="sign-up" class="">
     <div class="content-area">
       <!-- <div class="content"> -->
         <h1 class="bold">Stay updated!</h1>
@@ -31,12 +31,15 @@
         <p><i class="fa fa-check-circle orange"></i>And much more!</p>
         </div>
         <div class="submit">
-          <p class="bold">Email address</p>
-          <input type="email" name="email@company.com" placeholder="email@company.com">
+          <form action="#">
+            <div class="space-between">
+              <label class="bold">Email address</label>
+              <label class="bold orange" id="email-error"></label>
+            </div>
+            <input id="email-field" spellcheck="false" placeholder="email@company.com">
+            <button class="bold" type="submit" onclick="emailCheck()">Subscribe to monthly newsletter</button>
+          </form>
         </div>
-        
-
-        <button class="bold">Subscribe to monthly newsletter</button>
       <!-- </div> -->
     </div>
     <div class="img-area">
@@ -47,13 +50,14 @@
   <!-- Sign-up form end -->
 
   <!-- Success message start -->
-  <div hidden>
-    Thanks for subscribing!
+  <div id="success-popup" class="hidden">
+    <i class="fa fa-check-circle orange fa-3x"></i>
+    <h1 class="bold">Thanks for subscribing!</h1>
 
-    A confirmation email has been sent to ash@loremcompany.com. 
-    Please open it and click the button inside to confirm your subscription.
+    <p>A confirmation email has been sent to <span class="bold">ash@loremcompany.com</span>.
+    Please open it and click the button inside to confirm your subscription.</p>
 
-    Dismiss message
+    <button>Dismiss message</button>
   </div>
   <!-- Success message end -->
   
@@ -61,5 +65,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">ZoeTLam</a>.
   </div>
+
+  <script src="assets/js/index.js"></script>
 </body>
 </html>
