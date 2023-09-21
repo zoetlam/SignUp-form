@@ -7,9 +7,13 @@ function emailCheck(){
         return false;
     } else {
         emailError.innerHTML = "";
-        
         document.querySelector('#sign-up').classList.add('hidden');
         document.querySelector('#success-popup').classList.remove('hidden');
         return true;
     }
 }
+
+document.querySelector('#dismiss').addEventListener('click', function(){
+    document.querySelector('#sign-up').classList.remove('hidden');
+    document.querySelector('#success-popup').classList.add('hidden');
+})
