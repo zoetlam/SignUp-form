@@ -34,7 +34,11 @@ h1{
 #sign-up{
     background-color: #ffffff;
     display: flex;
-    margin: 60px auto 20px;
+    /* margin: 60px auto 20px; */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     padding: 13px 20px 13px 0;
     width: 800px;
     max-height: 80vh;
@@ -177,6 +181,9 @@ button:hover{
 
     #success-popup h1{
         margin: 40px auto 20px;
+    }
+    .attribution{
+        visibility: hidden;
     }
 }
 
