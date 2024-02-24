@@ -1,89 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Interactive card details form</title>
-  <!-- Google font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <!-- Core CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body class="">
-  <main class="container page-hero d-flex align-items-center">
-    <div class="row align-items-center mx-auto container-fluid">
-      <section class="col-lg-6 cards bg-transparent">
-        <div class="front-card-wrap">
-          <div id="front-card" class="">
-              <img src="assets/images/card-logo.svg" alt="card-logo" class="card-logo">
-              <h3 class="card-num">0000 0000 0000 0000</h3>
-              <span id="name" class="text-uppercase">Jane Appleseed</span>
-              <span class="cvc"><span class="f-month">00</span>/<span class="f-year">00</span></span>
-          </div>
-        </div>
-        <div class="back-card-wrap">  
-          <div id="back-card">
-            <h6 class="b-cvc">000</h6>
-          </div>
-        </div>
-      </section>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <script
+      src="https://kit.fontawesome.com/7798254451.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>
+      Frontend Mentor | Newsletter sign-up form with success message
+    </title>
 
-      <section id="info" class="mx-auto col-lg-4 mt-5 align-items-center">
-        <div class="align-items-center">
-          <div class="info-name">  
-            <h5>Cardholder Name</h5>
-            <input type="text" name="full-name" id="fullName" placeholder="e.g. Jane Appleseed" >
-            <!-- wrong -->
-            <p class="text-danger check num-card-text"></p>
-          </div>
-          <div class="info-numb">
-            <h5>Card Number</h5>
-            <input type="text" name="card" id="cardNum" placeholder="e.g. 1234 5678 9123 0000">
-            <!-- wrong -->
-            <p class="text-danger check num-card-text"></p>
-          </div>
-          <div class="row">
-            <div class="col-6 info-month-year">
-              <h5>Exp. Date (MM/YY)</h5>
-              <input type="text" name="month" id="month" placeholder="MM">
-              <input type="text" name="year" id="year" placeholder="YY">
-              <p class="text-danger check num-card-text"></p>
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        color: white;
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        transform: translate(-50%, -50%);
+      }
+      .attribution a {
+        color: #fdfd9a;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sign-up form start -->
+    <main id="sign-up" class="">
+      <div id="mobile-img">
+        <img src="assets/images/illustration-sign-up-mobile.svg" />
+      </div>
+      <div class="content-area">
+        <h1 class="bold">Stay updated!</h1>
+
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+
+        <div class="bullet">
+          <p>
+            <i class="fa fa-check-circle orange"></i>Product discovery and
+            building what matters
+          </p>
+          <p>
+            <i class="fa fa-check-circle orange"></i>Measuring to ensure updates
+            are a success
+          </p>
+          <p><i class="fa fa-check-circle orange"></i>And much more!</p>
+        </div>
+        <div class="submit">
+          <form action="#">
+            <div class="space-between">
+              <label class="bold">Email address</label>
+              <label class="bold orange" id="email-error"></label>
             </div>
-            <div class="col-6 info-cvc">
-              <h5>CVC</h5>
-              <input type="text" name="cvc" id="cvc" placeholder="e.g. 123">
-              <p class="text-danger check num-card-text"></p>
-            </div>
-          </div>
-          <a class="btn btn-primary btn-lg btn-block" onclick="checkValid()">Confirm</a>
+            <input
+              id="email-field"
+              spellcheck="false"
+              placeholder="email@company.com"
+            />
+            <button class="bold" type="submit" onclick="emailCheck()">
+              Subscribe to monthly newsletter
+            </button>
+          </form>
         </div>
-        
-      </section>   
-          <!-- Completed state start -->
-      <section id ="success" class="mx-auto col-lg-4  align-content-center text-center invisible">
-        <img src="assets/images/icon-complete.svg" alt="check-icon">
-        <h2 class="text-uppercase">Thank you!</h2>
-        <p>We've added your card details</p>
-        <a class="btn btn-primary btn-lg btn-block" onclick="reload()">Continue</a>
-      </section>
+      </div>
+      <div class="img-area" class="">
+        <img src="assets/images/illustration-sign-up-desktop.svg" />
+      </div>
+    </main>
 
-    </div>
-  </main>
-  <!-- footer -->
-  <footer class="attribution">
-  Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-  Coded by <a href="https://github.com/zoetlam">Zoe Thi Lam</a>.
-  </footer>
-  <script src="js/scripts.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  
-  
-</body>
+    <!-- Sign-up form end -->
+
+    <!-- Success message start -->
+    <section id="success-popup" class="hidden">
+      <i class="fa fa-check-circle orange fa-3x"></i>
+      <h1 class="bold">Thanks for subscribing!</h1>
+
+      <p>
+        A confirmation email has been sent to
+        <span class="bold">ash@loremcompany.com</span>. Please open it and click
+        the button inside to confirm your subscription.
+      </p>
+
+      <button id="dismiss" onclick="reload()">Dismiss message</button>
+    </section>
+    <!-- Success message end -->
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">ZoeTLam</a>.
+    </footer>
+
+    <script src="assets/js/index.js"></script>
+  </body>
 </html>
